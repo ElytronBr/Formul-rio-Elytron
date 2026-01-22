@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Elytron | Formulário</title>
+    <link
+      rel="shortcut icon"
+      href="img/logo-elytron.jpeg"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="elytron-container">
+      <img src="img/logo-elytron.png" alt="Logo da Elytron" />
+      <h1 class="elytron-title">Formulário Elytron</h1>
+
+      <form id="elytronForm" class="elytron-form">
+        <!-- DADOS PESSOAIS -->
+        <section class="form-section">
+          <div class="form-group">
+            <label>Nome completo</label>
+            <input type="text" name="nome" required />
+          </div>
+
+          <div class="form-group">
+            <label>E-mail</label>
+            <input type="email" name="email" required />
+          </div>
+
+          <div class="form-group">
+            <label>Celular</label>
+            <input type="tel" name="celular" required />
+          </div>
+
+          <div class="form-group">
+            <label>Data de nascimento</label>
+            <input type="date" name="nascimento" required />
+          </div>
+
+          <div class="form-group">
+            <label>Localidade</label>
+            <select name="estado" required>
+              <option value="">Selecione o estado</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- FORMAÇÃO -->
+        <section class="form-section">
+          <div class="form-group">
+            <label>Situação educacional</label>
+            <select name="estudo" required>
+              <option value="">Selecione</option>
+              <option>Ensino Fundamental II (cursando)</option>
+              <option>Ensino médio (cursando)</option>
+              <option>Ensino médio concluído</option>
+              <option>Curso técnico (cursando)</option>
+              <option>Curso técnico concluído</option>
+              <option>Faculdade (cursando)</option>
+              <option>Faculdade concluída</option>
+              <option>Não estou estudando no momento</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Área desejada</label>
+            <select name="area" required>
+              <option value="">Selecione</option>
+              <option>Designer Gráfico</option>
+              <option>JavaScript</option>
+              <option>Marketing</option>
+              <option>HTML/CSS</option>
+              <option>SQL</option>
+              <option>Outra</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Nível de conhecimento</label>
+            <select name="nivel" required>
+              <option value="">Selecione</option>
+              <option>Iniciante</option>
+              <option>Intermediário</option>
+              <option>Avançado</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Experiência</label>
+            <select name="experiencia" required>
+              <option value="">Selecione</option>
+              <option>Nenhuma experiência</option>
+              <option>Até 6 meses</option>
+              <option>De 6 meses a 1 ano</option>
+              <option>Mais de 1 ano</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- DISPONIBILIDADE -->
+        <section class="form-section">
+          <div class="form-group">
+            <label>Qual o melhor dia pra você</label>
+            <select name="dias" required>
+              <option value="">Selecione</option>
+              <option>Segunda-feira</option>
+              <option>Terça-feira</option>
+              <option>Quarta-feira</option>
+              <option>Quinta-feira</option>
+              <option>Sexta-feira</option>
+              <option>Sábado</option>
+              <option>Domingo</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Horário disponível</label>
+            <select name="horarios" required>
+              <option value="">Selecione</option>
+              <option>Manhã (08:00 – 12:00)</option>
+              <option>Tarde (13:00 – 17:00)</option>
+              <option>Noite (18:00 – 22:00)</option>
+              <option>Integral</option>
+            </select>
+          </div>
+        </section>
+
+        <!-- PERFIL -->
+        <section class="form-section">
+          <div class="form-group">
+            <label>Objetivo</label>
+            <select name="objetivo" required>
+              <option value="">Selecione</option>
+              <option>Aprendizado</option>
+              <option>Experiência profissional</option>
+              <option>Crescimento na área</option>
+              <option>Ingresso no mercado de trabalho</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Possui equipamento próprio?</label>
+            <select name="equipamento" required>
+              <option value="">Selecione</option>
+              <option>Sim</option>
+              <option>Não</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Já trabalhou em equipe?</label>
+            <select name="equipe" required>
+              <option value="">Selecione</option>
+              <option>Sim</option>
+              <option>Não</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Sobre você</label>
+            <textarea
+              name="sobre"
+              rows="5"
+              placeholder="Fale brevemente sobre sua experiência, conhecimentos e objetivos"
+              required
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- AUTORIZAÇÃO -->
+        <div class="form-group checkbox-group">
+          <label class="checkbox-wrap">
+            <input type="checkbox" name="autorizacao" required />
+            <span>
+              Autorizo a Elytron a entrar em contato comigo para fins de
+              recrutamento, comunicação institucional e retorno sobre este
+              cadastro.
+            </span>
+          </label>
+        </div>
+
+        <!-- BOTÃO -->
+        <button type="submit" class="form-button">Enviar</button>
+      </form>
+    </main>
+    <footer class="elytron-footer">
+      <div class="footer-content">
+        <p class="footer-text">© 2026 Elytron. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      const form = document.getElementById("elytronForm");
+      const status = document.getElementById("elytronStatus");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault(); // impede redirecionamento
+
+        const formData = new FormData(form);
+
+        // configs extras do FormSubmit
+        formData.append("_subject", "Novo cadastro - Elytron");
+        formData.append("_captcha", "false");
+
+        fetch("https://formsubmit.co/ajax/suporteelytron@gmail.com", {
+          method: "POST",
+          body: formData,
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            status.style.display = "block";
+            form.reset();
+          })
+          .catch((error) => {
+            alert("Erro ao enviar o formulário. Tente novamente.");
+          });
+      });
+    </script>
+  </body>
+</html>
