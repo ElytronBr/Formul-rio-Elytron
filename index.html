@@ -221,27 +221,22 @@
     <script>
       const form = document.getElementById("elytronForm");
 
-      // cria a mensagem de status dinamicamente (sem mexer no HTML)
       const status = document.createElement("p");
-      status.id = "elytronStatus";
       status.style.display = "none";
       status.style.marginTop = "15px";
       status.style.fontWeight = "600";
-      status.style.color = "#0b3d91";
       form.appendChild(status);
 
-      const submitButton = form.querySelector("button[type='submit']");
+      const button = form.querySelector("button");
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         status.style.display = "none";
-        submitButton.disabled = true;
-        submitButton.textContent = "Enviando...";
+        button.disabled = true;
+        button.textContent = "Enviando...";
 
         const formData = new FormData(form);
-
-        // configs do FormSubmit
         formData.append("_subject", "Novo cadastro - Elytron");
         formData.append("_captcha", "false");
 
@@ -250,33 +245,30 @@
             "https://formsubmit.co/ajax/suporteelytron@gmail.com",
             {
               method: "POST",
-              headers: {
-                Accept: "application/json",
-              },
               body: formData,
             },
           );
 
-          if (!response.ok) {
-            throw new Error("Erro na requisição");
-          }
-
           const data = await response.json();
 
-          status.textContent =
-            "Formulário enviado com sucesso! Aguarde nosso contato.";
-          status.style.display = "block";
-          status.style.color = "#0b3d91";
-
-          form.reset();
-        } catch (error) {
+          // 👉 O PONTO CRÍTICO
+          if (data.success === "true" || data.success === true) {
+            status.textContent =
+              "Formulário enviado com sucesso! Aguarde nosso contato.";
+            status.style.color = "#0b3d91";
+            status.style.display = "block";
+            form.reset();
+          } else {
+            throw new Error("Envio não confirmado");
+          }
+        } catch (err) {
           status.textContent =
             "Erro ao enviar o formulário. Tente novamente mais tarde.";
-          status.style.display = "block";
           status.style.color = "#8b0000";
+          status.style.display = "block";
         } finally {
-          submitButton.disabled = false;
-          submitButton.textContent = "Enviar";
+          button.disabled = false;
+          button.textContent = "Enviar";
         }
       });
     </script>
