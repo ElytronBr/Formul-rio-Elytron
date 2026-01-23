@@ -222,19 +222,18 @@
       const form = document.getElementById("elytronForm");
       const button = form.querySelector("button");
 
-      // cria o elemento de status
       const status = document.createElement("p");
       status.id = "elytronStatus";
-      form.appendChild(status);
+
+      // 🔥 agora ele entra ANTES do botão
+      form.insertBefore(status, button);
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        // reset visual do status
         status.className = "";
         status.textContent = "";
 
-        // feedback no botão
         button.disabled = true;
         button.textContent = "Enviando...";
 
@@ -251,18 +250,15 @@
             },
           );
 
-          const data = await response.json();
-
-          // FormSubmit às vezes não retorna success consistente
           if (response.ok) {
             status.textContent =
               "Formulário enviado com sucesso! Aguarde nosso contato.";
             status.classList.add("show", "success");
             form.reset();
           } else {
-            throw new Error("Erro na resposta");
+            throw new Error("Erro");
           }
-        } catch (error) {
+        } catch {
           status.textContent =
             "Erro ao enviar o formulário. Tente novamente mais tarde.";
           status.classList.add("show", "error");
