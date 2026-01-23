@@ -222,6 +222,53 @@ body::before {
   }
 }
 
+/* STATUS BASE */
+#elytronStatus {
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* MOSTRAR */
+#elytronStatus.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SUCESSO COM BRILHO */
+#elytronStatus.success {
+  color: #0b3d91;
+  text-shadow:
+    0 0 8px rgba(74, 144, 226, 0.6),
+    0 0 16px rgba(74, 144, 226, 0.4);
+  animation: glowPulse 1.6s ease-in-out infinite alternate;
+}
+
+/* ERRO */
+#elytronStatus.error {
+  color: #8b0000;
+}
+
+/* ANIMAÇÃO */
+@keyframes glowPulse {
+  from {
+    text-shadow:
+      0 0 6px rgba(74, 144, 226, 0.4),
+      0 0 12px rgba(74, 144, 226, 0.25);
+  }
+  to {
+    text-shadow:
+      0 0 10px rgba(74, 144, 226, 0.9),
+      0 0 22px rgba(74, 144, 226, 0.6);
+  }
+}
+
 .elytron-footer {
   width: 100%;
   margin-top: 20px;

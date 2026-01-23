@@ -220,19 +220,21 @@
 
     <script>
       const form = document.getElementById("elytronForm");
-
-      const status = document.createElement("p");
-      status.style.display = "none";
-      status.style.marginTop = "15px";
-      status.style.fontWeight = "600";
-      form.appendChild(status);
-
       const button = form.querySelector("button");
+
+      // cria o elemento de status
+      const status = document.createElement("p");
+      status.id = "elytronStatus";
+      form.appendChild(status);
 
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        status.style.display = "none";
+        // reset visual do status
+        status.className = "";
+        status.textContent = "";
+
+        // feedback no botão
         button.disabled = true;
         button.textContent = "Enviando...";
 
@@ -251,21 +253,19 @@
 
           const data = await response.json();
 
-          // 👉 O PONTO CRÍTICO
-          if (data.success === "true" || data.success === true) {
+          // FormSubmit às vezes não retorna success consistente
+          if (response.ok) {
             status.textContent =
               "Formulário enviado com sucesso! Aguarde nosso contato.";
-            status.style.color = "#0b3d91";
-            status.style.display = "block";
+            status.classList.add("show", "success");
             form.reset();
           } else {
-            throw new Error("Envio não confirmado");
+            throw new Error("Erro na resposta");
           }
-        } catch (err) {
+        } catch (error) {
           status.textContent =
             "Erro ao enviar o formulário. Tente novamente mais tarde.";
-          status.style.color = "#8b0000";
-          status.style.display = "block";
+          status.classList.add("show", "error");
         } finally {
           button.disabled = false;
           button.textContent = "Enviar";
